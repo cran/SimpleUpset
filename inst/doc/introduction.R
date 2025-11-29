@@ -96,16 +96,16 @@ simpleUpSet(
 ## Add a simple boxplot
 simpleUpSet(
   movies, sets, n_intersect = 10,
-  set_layers = default_set_layers(expand = 0.3),
-  intersect_layers = default_intersect_layers(expand = 0.1),
+  set_layers = default_set_layers(expand = c(0.3, 0)),
+  intersect_layers = default_intersect_layers(expand = c(0, 0.1)),
   annotations = list(geom_boxplot(aes(y = AvgRating))),
 )
 
 ## ----upset-violin, fig.height=8-----------------------------------------------
 simpleUpSet(
   movies, sets, n_intersect = 10,
-  set_layers = default_set_layers(expand = 0.3),
-  intersect_layers = default_intersect_layers(expand = 0.1),
+  set_layers = default_set_layers(expand = c(0.3, 0)),
+  intersect_layers = default_intersect_layers(expand = c(0, 0.1)),
   annotations = list(
     list(
       aes(y = AvgRating),
