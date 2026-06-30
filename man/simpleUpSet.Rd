@@ -23,8 +23,10 @@ simpleUpSet(
   height = 0.75,
   vjust_ylab = 0.8,
   stripe_colours = c("grey90", "white"),
+  keep_empty = FALSE,
   guides = "keep",
   top_left = NULL,
+  show_sets = TRUE,
   ...,
   na.rm = TRUE
 )
@@ -63,7 +65,7 @@ using \code{\link[=default_intersect_layers]{default_intersect_layers()}}}
 
 \item{grid_layers}{List of \code{ggplot2} layers, scales & themes}
 
-\item{highlight}{\code{\link[dplyr:case_when]{dplyr::case_when()}} statement defining all intersections to
+\item{highlight}{\code{\link[dplyr:case_when]{case_when()}} statement defining all intersections to
 highlight using \code{geom_intersect} and \code{scale_fill/colour_intersect}.
 Will add a column named \code{highlight} which can be called from any geom passed
 to the intersections barplot or matrix}
@@ -83,10 +85,14 @@ passed with the exception of facets.}
 \item{stripe_colours}{Colours for background stripes in the lower two panels.
 For no stripes, set as NULL}
 
-\item{guides}{Passed to \code{\link[patchwork:plot_layout]{patchwork::plot_layout()}}}
+\item{keep_empty}{Keep empty sets in the figure}
+
+\item{guides}{Passed to \code{\link[patchwork:plot_layout]{plot_layout()}}}
 
 \item{top_left}{Optional ggplot object to show in the top left panel. Will
 default to an empty ggplot object}
+
+\item{show_sets}{logical(1). Show the sets panel (default: TRUE)}
 
 \item{...}{Not used}
 

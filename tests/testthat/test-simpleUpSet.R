@@ -96,3 +96,21 @@ test_that("Empty points are shown for sets without an intersection", {
 
 
 })
+
+
+test_that("Empty sets can be retained when preferred", {
+
+    movies$Drama <- 0
+    p <- simpleUpSet(movies, sets)
+    expect_true(!"Drama" %in% levels(prop(p[[3]], "data")$set))
+    p <- simpleUpSet(movies, sets, keep_empty = TRUE)
+    expect_true("Drama" %in% levels(prop(p[[3]], "data")$set))
+
+})
+
+test_that("Sets can be hidden", {
+   p <- simpleUpSet(movies, sets)
+   expect_equal(length(p), 4L)
+   p <- simpleUpSet(movies, sets, show_sets = FALSE)
+   expect_equal(length(p), 2L)
+})
